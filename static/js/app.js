@@ -22,13 +22,11 @@ tableData.forEach((encounter) => {
 
 var submit = d3.select("#filter-btn");
 
+//filter function(s)
 function comparedate(input) {
   return input.datetime === document.getElementById('datetime').value;
 };
 
-function comparecountry(input) {
-  return input.country === document.getElementById('country').value;
-};
 
 submit.on("click", function() {
   d3.event.preventDefault();
@@ -37,7 +35,7 @@ submit.on("click", function() {
   d3.select("tbody").html("");
 
   //rebuild the table
-  tableData = data.filter(comparedate).filter(comparecountry)
+  tableData = data.filter(comparedate)
 
   tableData.forEach((encounter) => {
            
